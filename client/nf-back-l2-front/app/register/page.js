@@ -19,7 +19,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://websocket-chat-back-1.onrender.com/api/auth/register", formData);
+      const response = await axios.post("https://websocket-chat-tnpw.onrender.com/api/auth/register", formData);
       console.log(response.data);
       router.push("/");
     } catch (error) {

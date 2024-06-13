@@ -22,7 +22,7 @@ const Chat = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("https://websocket-chat-back-1.onrender.com/api/auth/users");
+        const response = await axios.get("https://websocket-chat-tnpw.onrender.com/api/auth/users");
         setUsers(response.data.filter((user: any) => user.username !== username)); 
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -34,7 +34,7 @@ const Chat = () => {
 
   useEffect(() => {
     if (token) {
-      socket = io("https://websocket-chat-back-1.onrender.com", {
+      socket = io("https://websocket-chat-tnpw.onrender.com", {
         auth: {
           token,
         },
@@ -80,7 +80,7 @@ const Chat = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("https://websocket-chat-back-1.onrender.com/api/auth/login", { email: username, password });
+      const res = await axios.post("https://websocket-chat-tnpw.onrender.com/api/auth/login", { email: username, password });
       setToken(res.data.accessToken);
     } catch (err: any) {
       console.error(err.message);
@@ -89,7 +89,7 @@ const Chat = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post("https://websocket-chat-back-1.onrender.com/api/auth/logout");
+      const response = await axios.post("https://websocket-chat-tnpw.onrender.com/api/auth/logout");
       setToken(null);
       console.log("Logout successful for user:", response.data.email); 
     } catch (err: any) {
